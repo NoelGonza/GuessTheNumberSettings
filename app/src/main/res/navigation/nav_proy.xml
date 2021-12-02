@@ -28,5 +28,22 @@
         android:name="tip"
         app:argType="string"
         android:defaultValue="None" />
+        <action
+            android:id="@+id/action_menu_destination_to_humanFragment"
+            app:destination="@id/humanFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/humanFragment"
+        android:name="cat.copernic.ngonzalezs.guessthenumber.pantallas.juego.HumanFragment"
+        android:label="human_fragment"
+        tools:layout="@layout/human_fragment">
+        <argument
+            android:name="lvl"
+            app:argType="integer" />
     </fragment>
 </navigation>

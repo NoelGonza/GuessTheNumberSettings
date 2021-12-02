@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import cat.copernic.ngonzalezs.guessthenumber.R
 import cat.copernic.ngonzalezs.guessthenumber.databinding.MenuFragmentBinding
+import cat.copernic.ngonzalezs.guessthenumber.pantallas.inicio.MainFragmentDirections
 
 class MenuFragment  : Fragment() {
 
@@ -34,9 +36,30 @@ class MenuFragment  : Fragment() {
         val safeArgs: MenuFragmentArgs by navArgs()
         val nom = safeArgs.tip
 
-        binding.btnLvl10.setText(nom + " LVL 10")
-        binding.btnLvl50.setText(nom + " LVL 50")
-        binding.btnLvl100.setText(nom + " LVL 100")
+        val btn_10 = binding.btnLvl10
+        val btn_50 = binding.btnLvl50
+        val btn_100 = binding.btnLvl100
 
+        var action = MenuFragmentDirections.actionMenuDestinationToHumanFragment(0)
+        var action2 = MenuFragmentDirections.actionMenuDestinationToHumanFragment(1)
+        var action3 = MenuFragmentDirections.actionMenuDestinationToHumanFragment(2)
+
+        btn_10.text = "$nom LVL 10"
+        btn_50.text = "$nom LVL 50"
+        btn_100.text = "$nom LVL 100"
+
+        if (nom == "Maquina"){
+
+        }
+
+        btn_10.setOnClickListener {
+            findNavController().navigate(action)
+        }
+        btn_50.setOnClickListener{
+            findNavController().navigate(action2)
+        }
+        btn_100.setOnClickListener{
+            findNavController().navigate(action3)
+        }
     }
 }
