@@ -1,10 +1,7 @@
 package cat.copernic.ngonzalezs.guessthenumber.pantallas.juego
 
-import android.os.CountDownTimer
-import android.text.format.DateUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class HumanViewModel  : ViewModel() {

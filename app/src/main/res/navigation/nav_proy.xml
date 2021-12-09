@@ -36,6 +36,14 @@
             app:launchSingleTop="true"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_menu_destination_to_machineFragment"
+            app:destination="@id/machineFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/humanFragment"
@@ -45,5 +53,22 @@
         <argument
             android:name="lvl"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/machineFragment"
+        android:name="cat.copernic.ngonzalezs.guessthenumber.pantallas.juego.MachineFragment"
+        android:label="MachineFragment"
+        tools:layout="@layout/machine_fragment">
+        <argument
+            android:name="lvl"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_machineFragment_to_menu_destination"
+            app:destination="@id/menu_destination"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
 </navigation>

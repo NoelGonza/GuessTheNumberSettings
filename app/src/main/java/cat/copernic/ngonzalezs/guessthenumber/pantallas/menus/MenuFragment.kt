@@ -1,18 +1,13 @@
 package cat.copernic.ngonzalezs.guessthenumber.pantallas.menus
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import cat.copernic.ngonzalezs.guessthenumber.R
 import cat.copernic.ngonzalezs.guessthenumber.databinding.MenuFragmentBinding
-import cat.copernic.ngonzalezs.guessthenumber.pantallas.inicio.MainFragmentDirections
 
 class MenuFragment  : Fragment() {
 
@@ -49,7 +44,9 @@ class MenuFragment  : Fragment() {
         btn_100.text = "$nom LVL 100"
 
         if (nom == "Maquina"){
-
+            action = MenuFragmentDirections.actionMenuDestinationToMachineFragment(0)
+            action2 = MenuFragmentDirections.actionMenuDestinationToMachineFragment(1)
+            action3 = MenuFragmentDirections.actionMenuDestinationToMachineFragment(2)
         }
 
         btn_10.setOnClickListener {
