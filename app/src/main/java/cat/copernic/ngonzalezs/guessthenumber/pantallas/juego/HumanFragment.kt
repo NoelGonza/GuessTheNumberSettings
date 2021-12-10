@@ -79,12 +79,19 @@ class HumanFragment : Fragment() {
     }
 
     private fun juegoAcabado() {
+        val safeArgs: HumanFragmentArgs by navArgs()
+        val lvl = safeArgs.lvl
+
         binding.chrTiempo.stop()
 
         val tiempo = SystemClock.elapsedRealtime() - binding.chrTiempo.base;
         val minutos: Int = (tiempo / 1000 / 60).toInt()
         val segundos: Int = (tiempo / 1000 % 60).toInt()
+        val texto: String = "Has tardado $minutos min y $segundos seg"
 
+        val action = HumanFragmentDirections.actionHumanFragmentToPunto(texto, lvl, "Humano")
 
+        NavHostFragment.findNavController(this).navigate(action)
+        viewModel.cuandoAcabaFinal()
     }
 }

@@ -53,6 +53,14 @@
         <argument
             android:name="lvl"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_humanFragment_to_punto"
+            app:destination="@id/punto"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/machineFragment"
@@ -65,6 +73,61 @@
         <action
             android:id="@+id/action_machineFragment_to_menu_destination"
             app:destination="@id/menu_destination"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_machineFragment_to_punto"
+            app:destination="@id/punto"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/punto"
+        android:name="cat.copernic.ngonzalezs.guessthenumber.pantallas.puntuacion.PuntoFragment"
+        android:label="Punto"
+        tools:layout="@layout/punto_fragment">
+        <argument
+            android:name="txtFin"
+            app:argType="string" />
+        <argument
+            android:name="lvl"
+            app:argType="integer" />
+        <argument
+            android:name="tipo"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_punto_to_machineFragment"
+            app:destination="@id/machineFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_punto_to_humanFragment"
+            app:destination="@id/humanFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_punto_to_menu_destination"
+            app:destination="@id/menu_destination"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_punto_to_mainFragment"
+            app:destination="@id/mainFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:launchSingleTop="true"

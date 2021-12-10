@@ -24,7 +24,7 @@ class MachineViewModel  : ViewModel() {
     private val _juegaMal = MutableLiveData<Boolean>()
     val juegaMal: LiveData<Boolean> get() = _juegaMal
 
-    private var nivel = 0
+    var nivel = 4
 
     fun setLvl(lvl: Int){
         nivel = lvl

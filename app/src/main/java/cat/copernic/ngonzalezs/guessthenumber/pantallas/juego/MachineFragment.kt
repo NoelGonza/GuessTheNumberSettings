@@ -59,29 +59,28 @@ class MachineFragment : Fragment() {
         when (lvl) {
             0 -> {
                 binding.txtTit.text = "Nivel 1-10"
-                viewModel.setLvl(lvl)
             }
             1 -> {
                 binding.txtTit.text = "Nivel 1-50"
-                viewModel.setLvl(lvl)
             }
             2 -> {
                 binding.txtTit.text = "Nivel 1-100"
-                viewModel.setLvl(lvl)
             }
             else -> {
                 binding.txtTit.text = "Error"
             }
         }
 
+        if(viewModel.nivel == 4){
+            viewModel.setLvl(lvl)
+        }
+
         binding.btnMayor.setOnClickListener {
             viewModel.masGrande()
-            binding.txtTit.text = viewModel.cont.value.toString()
         }
 
         binding.btnMenor.setOnClickListener {
             viewModel.masPequeno()
-            binding.txtTit.text = viewModel.cont.value.toString()
         }
 
         binding.btnIgual.setOnClickListener {
@@ -91,11 +90,17 @@ class MachineFragment : Fragment() {
     }
 
     private fun juegoAcabado() {
-        //binding.chrTiempo.stop()
+        val safeArgs: MachineFragmentArgs by navArgs()
+        val lvl = safeArgs.lvl
 
-        //val tiempo = SystemClock.elapsedRealtime() - binding.chrTiempo.base;
-        //val minutos: Int = (tiempo / 1000 / 60).toInt()
-        //val segundos: Int = (tiempo / 1000 % 60).toInt()
+        val cont = viewModel.cont.value
+
+        val texto: String = "La maquina ha tardado $cont intentos"
+
+        val action = MachineFragmentDirections.actionMachineFragmentToPunto(texto, lvl, "Maquina")
+
+        NavHostFragment.findNavController(this).navigate(action)
+        viewModel.cuandoAcabaFinal()
     }
 
     private fun vueltaInicio() {

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="puntoViewModel"
+            type="cat.copernic.ngonzalezs.guessthenumber.pantallas.puntuacion.PuntoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pantallas.puntuacion.PuntoFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="75dp" />
+
+        <Button
+            android:id="@+id/btn_jugar"
+            android:layout_width="210dp"
+            android:layout_height="54dp"
+            android:text="VUELVE A JUGAR"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="148dp" />
+
+        <TextView
+            android:id="@+id/txt_tit"
+            android:layout_width="312dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="64dp"
+            android:text="Juego Terminado!"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_num"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginTop="44dp"
+            android:text="@{puntoViewModel.textoFin}"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.499"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_tit" />
+
+        <Button
+            android:id="@+id/btn_nivel"
+            android:layout_width="162dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:text="ESCOJE NIVEL"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_modo"
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btn_modo"
+            android:layout_width="162dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="16dp"
+            android:text="ESCOJE MODO"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/btn_nivel"
+            app:layout_constraintHorizontal_bias="0.535"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
+            app:layout_constraintVertical_bias="0.631" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
