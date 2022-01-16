@@ -1,17 +1,24 @@
 package cat.copernic.ngonzalezs.guessthenumber.pantallas.puntuacion
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Process
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.preference.PreferenceManager
 import cat.copernic.ngonzalezs.guessthenumber.R
 import cat.copernic.ngonzalezs.guessthenumber.databinding.PuntoFragmentBinding
+import cat.copernic.ngonzalezs.guessthenumber.pantallas.inicio.MainFragmentDirections
+import kotlinx.android.synthetic.main.punto_fragment.*
 
 class PuntoFragment : Fragment() {
 
@@ -42,29 +49,44 @@ class PuntoFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
         val btn_juego = binding.btnJugar
-        val btn_main = binding.btnModo
-        val btn_Lvl = binding.btnNivel
+        val btn_main = binding.btnInicio
+        val btn_option = binding.btnOptions
+        val btn_cierre = binding.btnCerrar
 
-        var action = PuntoFragmentDirections.actionPuntoToMenuDestination("Humano")
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context).getAll()
+
+        val modo = prefs["type"] as String?
+        val nivel2 = prefs["level"] as String?
+
+        var lvl = 0
+        var action = PuntoFragmentDirections.actionPuntoToMainFragment()
         var action2 = PuntoFragmentDirections.actionPuntoToMachineFragment(0)
+        val action3 = PuntoFragmentDirections.actionPuntoToSettingsFragment()
 
-        val action3 = PuntoFragmentDirections.actionPuntoToMainFragment()
+        when (nivel2) {
+            "1-50" -> {
+                lvl = 1
+            }
+            "1-100" -> {
+                lvl = 2
+            }
+        }
+
+        when (modo) {
+            "Humano" -> {
+                action2 = PuntoFragmentDirections.actionPuntoToHumanFragment(lvl)
+            }
+            "Maquina" -> {
+                action2 = PuntoFragmentDirections.actionPuntoToMachineFragment(lvl)
+            }
+        }
+
         btn_main.setOnClickListener {
-            findNavController().navigate(action3)
-        }
-
-        val nivel = viewModel.nivel.value
-
-        if (viewModel.tipoJuego.value == "Humano"){
-            action = PuntoFragmentDirections.actionPuntoToMenuDestination("Humano")
-            action2 = PuntoFragmentDirections.actionPuntoToHumanFragment(nivel!!)
-        }else{
-            action = PuntoFragmentDirections.actionPuntoToMenuDestination("Maquina")
-            action2 = PuntoFragmentDirections.actionPuntoToMachineFragment(nivel!!)
-        }
-
-        btn_Lvl.setOnClickListener {
             findNavController().navigate(action)
+        }
+
+        btn_option.setOnClickListener {
+            findNavController().navigate(action3)
         }
 
         btn_juego.setOnClickListener {
@@ -77,6 +99,10 @@ class PuntoFragment : Fragment() {
                 viewModel.vuelveJugarComplete()
             }
         })
+
+        btn_cierre.setOnClickListener{
+            activity?.finishAndRemoveTask()
+        }
 
         return binding.root
     }

@@ -15,6 +15,20 @@
         android:layout_height="match_parent"
         tools:context=".pantallas.puntuacion.PuntoFragment">
 
+        <Button
+            android:id="@+id/btn_cerrar"
+            android:layout_width="162dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:text="CERRAR JUEGO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_jugar"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_bias="0.2" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
             android:layout_width="wrap_content"
@@ -24,13 +38,15 @@
 
         <Button
             android:id="@+id/btn_jugar"
-            android:layout_width="210dp"
+            android:layout_width="162dp"
             android:layout_height="54dp"
+            android:layout_marginStart="16dp"
             android:text="VUELVE A JUGAR"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_cerrar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_bias="0.2" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
@@ -68,27 +84,27 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_tit" />
 
         <Button
-            android:id="@+id/btn_nivel"
+            android:id="@+id/btn_options"
             android:layout_width="162dp"
             android:layout_height="54dp"
             android:layout_marginStart="34dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
-            android:text="ESCOJE NIVEL"
+            android:text="OPCIONES"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_modo"
+            app:layout_constraintStart_toEndOf="@+id/btn_inicio"
             app:layout_constraintTop_toTopOf="@+id/guideline3"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/btn_modo"
+            android:id="@+id/btn_inicio"
             android:layout_width="162dp"
             android:layout_height="54dp"
             android:layout_marginStart="16dp"
-            android:text="ESCOJE MODO"
+            android:text="INICIO"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
-            app:layout_constraintEnd_toStartOf="@+id/btn_nivel"
+            app:layout_constraintEnd_toStartOf="@+id/btn_options"
             app:layout_constraintHorizontal_bias="0.535"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline3"

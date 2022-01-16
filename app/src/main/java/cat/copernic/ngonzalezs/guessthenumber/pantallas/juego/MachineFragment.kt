@@ -104,7 +104,7 @@ class MachineFragment : Fragment() {
     }
 
     private fun vueltaInicio() {
-        findNavController().navigate(MachineFragmentDirections.actionMachineFragmentToMenuDestination("Maquina"))
+        findNavController().navigate(MachineFragmentDirections.actionMachineFragmentToMainFragment())
         viewModel.juegaMalFinal()
     }
 }

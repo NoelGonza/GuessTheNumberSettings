@@ -9,40 +9,54 @@
         android:layout_height="match_parent"
         tools:context=".pantallas.inicio.MainFragment">
 
-        <Button
-            android:id="@+id/btn_humano"
-            android:layout_width="224dp"
-            android:layout_height="51dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:text="MODO HUMANO"
-            app:layout_constraintBottom_toTopOf="@+id/btn_maquina"
+        <TextView
+            android:id="@+id/preferencia"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginTop="12dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/btn_play"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.499"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logo" />
 
         <Button
-            android:id="@+id/btn_maquina"
+            android:id="@+id/btn_play"
             android:layout_width="224dp"
             android:layout_height="51dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="24dp"
-            android:text="MODO MAQUINA"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:text="JUGAR"
+            app:layout_constraintBottom_toTopOf="@+id/btn_opciones"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.499"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/preferencia" />
+
+        <Button
+            android:id="@+id/btn_opciones"
+            android:layout_width="224dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="OPCIONES"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.499"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_humano" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_play"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="388dp"
-            android:layout_height="251dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
+            android:layout_width="367dp"
+            android:layout_height="212dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/logo"
-            app:layout_constraintBottom_toTopOf="@+id/btn_humano"
+            app:layout_constraintBottom_toTopOf="@id/preferencia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"

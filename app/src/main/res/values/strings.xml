@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">GuessTheNumber</string>
+    <!-- Settings Activity Title -->
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="general">General</string>
+
+    <!-- Messages Preferences -->
+    <string name="general_nickname">Nombre de Usuario</string>
+    <string name="game_level">Nivel</string>
+    <string name="game_type">Modo de Juego</string>
+
 </resources>

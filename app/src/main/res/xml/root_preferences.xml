@@ -1,0 +1,33 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="">
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/general">
+
+        <EditTextPreference
+            app:key="nickname"
+            app:title="@string/general_nickname"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="Humano"
+            app:entries="@array/game_type_entries"
+            app:entryValues="@array/game_type_values"
+            app:key="type"
+            app:title="@string/game_type"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="1-10"
+            app:entries="@array/game_level_entries"
+            app:entryValues="@array/game_level_values"
+            app:key="level"
+            app:title="@string/game_level"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,25 @@
+<resources>
+    <!-- Game level -->
+    <string-array name="game_level_entries">
+        <item>1-10</item>
+        <item>1-50</item>
+        <item>1-100</item>
+    </string-array>
+
+    <string-array name="game_level_values">
+        <item>1-10</item>
+        <item>1-50</item>
+        <item>1-100</item>
+    </string-array>
+
+
+    <string-array name="game_type_entries">
+        <item>Humano</item>
+        <item>Maquina</item>
+    </string-array>
+
+    <string-array name="game_type_values">
+        <item>Humano</item>
+        <item>Maquina</item>
+    </string-array>
+</resources>

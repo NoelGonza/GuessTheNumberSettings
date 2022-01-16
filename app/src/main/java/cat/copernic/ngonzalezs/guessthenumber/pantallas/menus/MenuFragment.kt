@@ -34,7 +34,7 @@ class MenuFragment  : Fragment() {
         val btn_10 = binding.btnLvl10
         val btn_50 = binding.btnLvl50
         val btn_100 = binding.btnLvl100
-
+        /*
         var action = MenuFragmentDirections.actionMenuDestinationToHumanFragment(0)
         var action2 = MenuFragmentDirections.actionMenuDestinationToHumanFragment(1)
         var action3 = MenuFragmentDirections.actionMenuDestinationToHumanFragment(2)
@@ -57,6 +57,6 @@ class MenuFragment  : Fragment() {
         }
         btn_100.setOnClickListener{
             findNavController().navigate(action3)
-        }
+        }*/
     }
 }
