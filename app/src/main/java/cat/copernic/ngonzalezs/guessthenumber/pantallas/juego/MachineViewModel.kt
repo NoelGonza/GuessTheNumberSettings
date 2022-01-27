@@ -3,6 +3,11 @@ package cat.copernic.ngonzalezs.guessthenumber.pantallas.juego
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import cat.copernic.ngonzalezs.guessthenumber.pantallas.corroutine.Numero
+import cat.copernic.ngonzalezs.guessthenumber.pantallas.corroutine.rndomNum
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class MachineViewModel  : ViewModel() {
 
@@ -26,6 +31,33 @@ class MachineViewModel  : ViewModel() {
 
     var nivel = 4
 
+    var control = false;
+
+    var job: Job? = null
+
+    fun nuevoNum(izq: Int, der: Int) {
+        job = viewModelScope.launch {
+            val resultado: Numero = try {
+                rndomNum(izq, der)
+            } catch (e: Exception) {
+                Numero.Error(NoSuchElementException("Operación no válida"))
+            }
+            when (resultado) {
+                is Numero.Exitoso -> {
+                    _num.value = resultado.num
+                }
+                else -> {
+                    if (!control){
+                        _num.value = _pivD.value
+                        control = true
+                    }else{
+                        _juegaMal.value = true
+                    }
+                }
+            }
+        }
+    }
+
     fun setLvl(lvl: Int){
         nivel = lvl
         _cont.value = 0
@@ -35,27 +67,27 @@ class MachineViewModel  : ViewModel() {
             2 -> _pivD.value = 100
         }
         _pivI.value = 1
-        rndNum()
+        nuevoNum(_pivI.value!!, _pivD.value!!)
     }
 
-    private fun rndNum() {
+    /*private fun rndNum() {
         try {
             _num.value = (pivD.value?.let { pivI.value?.rangeTo(it) })?.random()
         }catch (e: NoSuchElementException){
             _juegaMal.value = true
         }
-    }
+    }*/
 
     fun masPequeno() {
         _pivD.value = _num.value?.minus(1)
         _cont.value = _cont.value?.plus(1)
-        rndNum()
+        nuevoNum(_pivI.value!!, _pivD.value!!)
     }
 
     fun masGrande() {
         _pivI.value = _num.value?.plus(1)
         _cont.value = _cont.value?.plus(1)
-        rndNum()
+        nuevoNum(_pivI.value!!, _pivD.value!!)
     }
 
     fun cuandoAcaba() {
