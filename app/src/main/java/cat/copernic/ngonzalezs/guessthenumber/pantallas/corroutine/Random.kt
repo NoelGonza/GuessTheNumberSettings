@@ -17,7 +17,7 @@ suspend fun rndomNum(izq: Int, der: Int): Numero {
         var num = 0
 
         try {
-            num = Random.nextInt(izq, der)
+            num = Random.nextInt(izq, der + 1)
             Numero
                 .Exitoso(num)
         }catch (e: NoSuchElementException){

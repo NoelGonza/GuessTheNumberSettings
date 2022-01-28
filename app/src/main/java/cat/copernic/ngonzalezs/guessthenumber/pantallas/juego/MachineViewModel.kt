@@ -31,8 +31,6 @@ class MachineViewModel  : ViewModel() {
 
     var nivel = 4
 
-    var control = false;
-
     var job: Job? = null
 
     fun nuevoNum(izq: Int, der: Int) {
@@ -47,12 +45,7 @@ class MachineViewModel  : ViewModel() {
                     _num.value = resultado.num
                 }
                 else -> {
-                    if (!control){
-                        _num.value = _pivD.value
-                        control = true
-                    }else{
-                        _juegaMal.value = true
-                    }
+                    _juegaMal.value = true
                 }
             }
         }
